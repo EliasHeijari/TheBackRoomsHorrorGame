@@ -1,5 +1,4 @@
-﻿//Script by EVOLVE GAMES > License = BY
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform Camera;
     [SerializeField] float walkingSpeed = 3.0f;
     [SerializeField] float CroughSpeed = 1.0f;
-    [SerializeField] float RuningSpeed = 7.0f;
+    [SerializeField] float RuningSpeed = 5.0f;
     [SerializeField] float jumpSpeed = 6.0f;
     [SerializeField] float lookSpeed = 2.0f;
     [SerializeField] float lookXLimit = 60.0f;
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float SpeedToFOV = 4.0f;
     [SerializeField] float CroughHeight = 1.0f;
     [SerializeField] float gravity = 20.0f;
-    [SerializeField] float timeToRunning = 10.0f;
     private bool canMove = true;
     [Space(20)]
     [Header("Input")]
@@ -33,7 +31,7 @@ public class PlayerController : MonoBehaviour
     float InstallCroughHeight;
     float rotationX = 0;
     private bool isRunning = false;
-    
+    private float InstallRuningSpeed;
     float InstallWalkingSpeed;
     float InstallFOV;
     Camera cam;
@@ -42,6 +40,12 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
     private float Lookvertical;
     private float Lookhorizontal;
+
+    [Header("walking & running Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip walkingClip;
+    [SerializeField] private AudioClip runningClip;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
         InstallCroughHeight = characterController.height;
         InstallFOV = cam.fieldOfView;
         InstallWalkingSpeed = walkingSpeed;
+        InstallRuningSpeed = RuningSpeed;
     }
 
     void Update()
@@ -59,23 +64,46 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
+
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
+
         if (!isCrough) isRunning = Input.GetKey(KeyCode.LeftShift);
-        if (isRunning)
+
+        float targetSpeed = isRunning ? RuningSpeed : walkingSpeed;
+
+        // Get raw input values without multiplying by speed
+        float inputVertical = Input.GetAxis("Vertical");
+        float inputHorizontal = Input.GetAxis("Horizontal");
+
+        // Normalize the input vector to prevent faster movement diagonally
+        Vector3 inputVector = new Vector3(inputHorizontal, 0, inputVertical).normalized;
+        vertical = targetSpeed * inputVector.z;
+        horizontal = targetSpeed * inputVector.x;
+
+        if (isRunning && (Mathf.Abs(inputHorizontal) > 0 || Mathf.Abs(inputVertical) > 0))
         {
-            vertical = Mathf.Lerp(walkingSpeed, RuningSpeed, timeToRunning * Time.deltaTime) * Input.GetAxis("Vertical");
-            horizontal = Mathf.Lerp(walkingSpeed, RuningSpeed, timeToRunning * Time.deltaTime) * Input.GetAxis("Horizontal");
+            audioSource.clip = runningClip;
+            if (!audioSource.isPlaying) audioSource.Play();
         }
-        else
+        else if (isRunning)
         {
-            vertical = walkingSpeed * Input.GetAxis("Vertical");
-            horizontal = walkingSpeed * Input.GetAxis("Horizontal");
+            audioSource.Stop();
         }
 
+        if (!isRunning && (Mathf.Abs(inputHorizontal) > 0 || Mathf.Abs(inputVertical) > 0))
+        {
+            audioSource.clip = walkingClip;
+            if (!audioSource.isPlaying) audioSource.Play();
+        }
+        else if (!isRunning)
+        {
+            audioSource.Stop();
+        }
 
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * vertical) + (right * horizontal);
+
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpSpeed;
@@ -86,7 +114,7 @@ public class PlayerController : MonoBehaviour
         }
 
         characterController.Move(moveDirection * Time.deltaTime);
-        Moving = horizontal < 0 || vertical < 0 || horizontal > 0 || vertical > 0 ? true : false;
+        Moving = Mathf.Abs(horizontal) > 0 || Mathf.Abs(vertical) > 0;
 
         if (Cursor.lockState == CursorLockMode.Locked && canMove)
         {
@@ -98,25 +126,26 @@ public class PlayerController : MonoBehaviour
             Camera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Lookhorizontal * lookSpeed, 0);
 
-            if (isRunning && Moving)
-            {
-                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, RunningFOV, SpeedToFOV * Time.deltaTime);
-            }
-            else cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, InstallFOV, SpeedToFOV * Time.deltaTime);
+            float targetFOV = isRunning && Moving ? RunningFOV : InstallFOV;
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, SpeedToFOV * Time.deltaTime);
         }
 
-
+        float targetHeight = Input.GetKey(CroughKey) ? CroughHeight : InstallCroughHeight;
+        float targetWalkingSpeed;
         if (Input.GetKey(CroughKey))
         {
-            float Height = Mathf.Lerp(characterController.height, CroughHeight, 5 * Time.deltaTime);
-            characterController.height = Height;
-            walkingSpeed = Mathf.Lerp(walkingSpeed, CroughSpeed, 6 * Time.deltaTime);
+            targetWalkingSpeed = CroughSpeed;
+            RuningSpeed = CroughSpeed;
         }
         else
         {
-            float Height = Mathf.Lerp(characterController.height, InstallCroughHeight, 7 * Time.deltaTime);
-            characterController.height = Height;
-            walkingSpeed = Mathf.Lerp(walkingSpeed, InstallWalkingSpeed, 4 * Time.deltaTime);
+            RuningSpeed = InstallRuningSpeed;
+            targetWalkingSpeed = InstallWalkingSpeed;
         }
+
+        characterController.height = Mathf.Lerp(characterController.height, targetHeight, 5 * Time.deltaTime);
+        walkingSpeed = Mathf.Lerp(walkingSpeed, targetWalkingSpeed, 6 * Time.deltaTime);
     }
 }
+
+

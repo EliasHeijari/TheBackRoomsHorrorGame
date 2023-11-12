@@ -23,6 +23,8 @@ public class Hallucination : MonoBehaviour
     public UnityEvent hallucinationStop;
     public static event EventHandler OnHallucinationMedium;
     public static event EventHandler OnHallucinationMediumOff;
+    private bool experiencedHallucination = false;
+    private bool hasWallsSet = false;
 
     enum hallucination
     {
@@ -68,20 +70,41 @@ public class Hallucination : MonoBehaviour
     {
         if (hallucination == hallucination.small)
         {
-            hallucinationStop.Invoke();
             SpawnJumpScare();
         }
         if (hallucination == hallucination.medium)
         {
-            hallucinationStop.Invoke();
-            OnHallucinationMedium?.Invoke(this, EventArgs.Empty);
+            if (!hasWallsSet)
+            {
+                hasWallsSet = true;
+                OnHallucinationMedium?.Invoke(this, EventArgs.Empty);
+                StartCoroutine(StopWallsMovementAfterTime());
+            }
+
             satan.gameObject.SetActive(true);
         }
         if (hallucination == hallucination.crazy)
         {
-            hallucinationMoveFloor.Invoke();
+            if (!experiencedHallucination)
+            {
+                hallucinationMoveFloor.Invoke();
+                StartCoroutine(StopFloorMovementAfterTime());
+                experiencedHallucination = true;
+            }
             hallucinationBar.color = new Color(255, 0, 0);
         }
+    }
+
+    IEnumerator StopFloorMovementAfterTime()
+    {
+        yield return new WaitForSeconds(6f);
+        hallucinationStop.Invoke();
+    }//OnHallucinationMediumOff?.Invoke(this, EventArgs.Empty);
+
+    IEnumerator StopWallsMovementAfterTime()
+    {
+        yield return new WaitForSeconds(15f);
+        OnHallucinationMediumOff?.Invoke(this, EventArgs.Empty);
     }
 
     private void SpawnJumpScare()
