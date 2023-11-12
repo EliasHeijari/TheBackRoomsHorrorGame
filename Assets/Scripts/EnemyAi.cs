@@ -259,10 +259,10 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, doorOpenRange);
 
         // Draw Patrol Points
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.red;
         foreach(Vector3 point in patrolPoints)
         {
-            Gizmos.DrawSphere(point, 0.5f);
+            Gizmos.DrawSphere(point, 1f);
         }
     }
 

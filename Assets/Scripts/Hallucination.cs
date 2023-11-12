@@ -50,7 +50,7 @@ public class Hallucination : MonoBehaviour
         {
             OnHallucinationMediumOff?.Invoke(this, EventArgs.Empty);
         }
-        if (hallucinationLevel > maxHallucinationLevel / 2) // crazy
+        if (hallucinationLevel > maxHallucinationLevel / 3) // crazy
         {
             HallucinationEffects(hallucination.crazy);
         }
