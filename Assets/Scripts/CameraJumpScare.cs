@@ -5,10 +5,12 @@ using UnityEngine;
 public class CameraJumpScare : MonoBehaviour
 {
     [SerializeField] private GameObject jumpScareObject;
+    [SerializeField] private GameObject satan;
+    [SerializeField] private GameObject enterWorldWall;
     private bool hasJumpScared = false;
     IEnumerator SetJumpScareOff()
     {
-        yield return new WaitForSeconds(2.3f);
+        yield return new WaitForSeconds(1.5f);
         jumpScareObject.SetActive(false);
     }
     IEnumerator SetJumpScareOn()
@@ -16,6 +18,7 @@ public class CameraJumpScare : MonoBehaviour
         yield return new WaitForSeconds(2f);
         jumpScareObject.SetActive(true);
         StartCoroutine(SetJumpScareOff());
+        satan.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,6 +27,7 @@ public class CameraJumpScare : MonoBehaviour
         {
             hasJumpScared = true;
             StartCoroutine(SetJumpScareOn());
+            Destroy(enterWorldWall);
         }
     }
 }

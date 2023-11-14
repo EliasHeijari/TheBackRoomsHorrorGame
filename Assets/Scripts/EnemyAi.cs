@@ -195,7 +195,7 @@ public class EnemyAI : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTimeToDamage); // Wait for animation to be in correct point to do damage
         Debug.Log("Damage done to player");
-        player.TakeDamage(meleeDamage);
+        player.TakeDamage(meleeDamage, gameObject.tag);
     }
 
     private void Patrol()

@@ -10,15 +10,8 @@ public class Hallucination : MonoBehaviour
     [SerializeField] private const int maxHallucinationLevel = 100;
     [SerializeField] private int hallucinationLevel = 5;
     [SerializeField] private Image hallucinationBar;
-    [SerializeField] private GameObject flashCharacter;
-    [SerializeField] private Transform jumpScareTransform;
-    [SerializeField] private GameObject satan;
-    private GameObject jumpScareCharacter;
     private float timer = 0;
     [SerializeField] private const float timeToIncreaseHalluci = 2f;
-    private float mediumJumpScareTimer = 0;
-    private float timeToMediumJumpScare = 0;
-    private bool mediumJumpScareTimeSet = false;
     public UnityEvent hallucinationMoveFloor;
     public UnityEvent hallucinationStop;
     public static event EventHandler OnHallucinationMedium;
@@ -54,7 +47,6 @@ public class Hallucination : MonoBehaviour
         {
             HallucinationEffects(hallucination.crazy);
         }
-        else { satan.gameObject.SetActive(false); }
         if (hallucinationLevel >= maxHallucinationLevel) // die
         {
             Debug.Log("you died");
@@ -70,7 +62,7 @@ public class Hallucination : MonoBehaviour
     {
         if (hallucination == hallucination.small)
         {
-            SpawnJumpScare();
+
         }
         if (hallucination == hallucination.medium)
         {
@@ -80,8 +72,6 @@ public class Hallucination : MonoBehaviour
                 OnHallucinationMedium?.Invoke(this, EventArgs.Empty);
                 StartCoroutine(StopWallsMovementAfterTime());
             }
-
-            satan.gameObject.SetActive(true);
         }
         if (hallucination == hallucination.crazy)
         {
@@ -99,30 +89,12 @@ public class Hallucination : MonoBehaviour
     {
         yield return new WaitForSeconds(6f);
         hallucinationStop.Invoke();
-    }//OnHallucinationMediumOff?.Invoke(this, EventArgs.Empty);
+    }
 
     IEnumerator StopWallsMovementAfterTime()
     {
         yield return new WaitForSeconds(15f);
         OnHallucinationMediumOff?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void SpawnJumpScare()
-    {
-        mediumJumpScareTimer += Time.deltaTime;
-        if (!mediumJumpScareTimeSet)
-        {
-            timeToMediumJumpScare = UnityEngine.Random.Range(20f, 40f);
-            mediumJumpScareTimeSet = true;
-        }
-        if (mediumJumpScareTimer >= timeToMediumJumpScare)
-        {
-            jumpScareCharacter = Instantiate(flashCharacter, jumpScareTransform.position, Quaternion.identity);
-            jumpScareCharacter.transform.LookAt(transform.position - Vector3.up);
-            Destroy(jumpScareCharacter, 2.3f);
-            mediumJumpScareTimeSet = false;
-            mediumJumpScareTimer = 0;
-        }
     }
 
     private void IncreaseHallucination()
