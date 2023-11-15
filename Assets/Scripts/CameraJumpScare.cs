@@ -8,6 +8,11 @@ public class CameraJumpScare : MonoBehaviour
     [SerializeField] private GameObject satan;
     [SerializeField] private GameObject enterWorldWall;
     private bool hasJumpScared = false;
+
+    private void Start()
+    {
+        enterWorldWall.SetActive(true);
+    }
     IEnumerator SetJumpScareOff()
     {
         yield return new WaitForSeconds(1.5f);
