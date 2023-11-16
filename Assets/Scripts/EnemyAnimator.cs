@@ -11,17 +11,30 @@ public class EnemyAnimator : MonoBehaviour
     private string isRunning = "IsRunning";
     private string isAttacking = "IsAttacking";
     private string isLookingAround = "IsLookingAround";
+    private string isJumpScare = "IsJumpScare";
+    bool isPlayerDead = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        Player.OnJumpScare += Player_OnJumpScare;
+    }
+
+    private void Player_OnJumpScare(object sender, Player.JumpScareEventArgs e)
+    {
+        isPlayerDead = true;
+        Debug.Log("Dead, Jump Scare!");
+        animator.SetBool(isJumpScare, true);
     }
 
     private void Update()
     {
-        animator.SetBool(isWalking, enemyAi.IsWalking());
-        animator.SetBool(isRunning, enemyAi.IsRunning());
-        animator.SetBool(isAttacking, enemyAi.IsAttacking());
-        animator.SetBool(isLookingAround, enemyAi.IsLookingAround());
+        if (!isPlayerDead)
+        {
+            animator.SetBool(isWalking, enemyAi.IsWalking());
+            animator.SetBool(isRunning, enemyAi.IsRunning());
+            animator.SetBool(isAttacking, enemyAi.IsAttacking());
+            animator.SetBool(isLookingAround, enemyAi.IsLookingAround());
+        }
     }
 }

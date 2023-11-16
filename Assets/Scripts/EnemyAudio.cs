@@ -11,13 +11,19 @@ public class EnemyAudio : MonoBehaviour
     private float canPlayTime = 20f;
     bool canPlayOverHere = true;
     bool stopChaseAudio = false;
+    private float chaseAudioVolume;
+
+    private void Start()
+    {
+        chaseAudioVolume = ChaseAudioSource.volume;
+    }
 
     private void Update()
     {
-        if (stopChaseAudio)
+        if (stopChaseAudio && ChaseAudioSource.volume > 0.03f)
         {
             ChaseAudioSource.volume = Mathf.Lerp(ChaseAudioSource.volume, 0, fadeToStopChaseAudio * Time.deltaTime);
-            if (ChaseAudioSource.volume < 0.1)
+            if (ChaseAudioSource.volume < 0.03f)
             {
                 ChaseAudioSource.Stop();
             }
@@ -37,7 +43,7 @@ public class EnemyAudio : MonoBehaviour
         if (!ChaseAudioSource.isPlaying) 
         {
             stopChaseAudio = false;
-            ChaseAudioSource.volume = 1f;
+            ChaseAudioSource.volume = chaseAudioVolume;
             ChaseAudioSource.Play();
         }
     }

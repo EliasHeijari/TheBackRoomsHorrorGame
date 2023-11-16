@@ -18,7 +18,7 @@ public class ManualCameraRendering : MonoBehaviour
 
         if (dot < 0f)
         {
-            if (Vector3.Distance(playerTransform.position, SecurityTVTransform.position) < 13f)
+            if (Vector3.Distance(playerTransform.position, SecurityTVTransform.position) < 19f)
             {
                 return true;
             }

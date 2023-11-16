@@ -8,6 +8,7 @@ public class CameraJumpScare : MonoBehaviour
     [SerializeField] private GameObject satan;
     [SerializeField] private GameObject enterWorldWall;
     private bool hasJumpScared = false;
+    [SerializeField] private AudioSource lightsOffSource;
 
     private void Start()
     {
@@ -15,15 +16,20 @@ public class CameraJumpScare : MonoBehaviour
     }
     IEnumerator SetJumpScareOff()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         jumpScareObject.SetActive(false);
+        RenderSettings.fog = true;
+        Color color = new Color(0.35f, 0.35f, 0.35f);
+        RenderSettings.ambientLight = color;
+        satan.gameObject.SetActive(true);
+        lightsOffSource.Play();
     }
+
     IEnumerator SetJumpScareOn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         jumpScareObject.SetActive(true);
         StartCoroutine(SetJumpScareOff());
-        satan.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)

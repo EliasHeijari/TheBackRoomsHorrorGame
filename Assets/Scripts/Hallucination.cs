@@ -21,7 +21,6 @@ public class Hallucination : MonoBehaviour
 
     enum hallucination
     {
-        small,
         medium,
         crazy
     }
@@ -31,10 +30,6 @@ public class Hallucination : MonoBehaviour
         IncreaseHallucination();
         UpdateUI();
 
-        if (hallucinationLevel > maxHallucinationLevel / 5) // small
-        {
-            HallucinationEffects(hallucination.small);
-        }
         if (hallucinationLevel > maxHallucinationLevel / 4) // medium
         {
             HallucinationEffects(hallucination.medium);
@@ -47,10 +42,6 @@ public class Hallucination : MonoBehaviour
         {
             HallucinationEffects(hallucination.crazy);
         }
-        if (hallucinationLevel >= maxHallucinationLevel) // die
-        {
-            Debug.Log("you died");
-        }
     }
 
     private void UpdateUI()
@@ -60,10 +51,6 @@ public class Hallucination : MonoBehaviour
 
     private void HallucinationEffects(hallucination hallucination)
     {
-        if (hallucination == hallucination.small)
-        {
-
-        }
         if (hallucination == hallucination.medium)
         {
             if (!hasWallsSet)

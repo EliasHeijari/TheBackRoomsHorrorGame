@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform partyGoerTransform;
     [SerializeField] private Transform smilingTransform;
     [SerializeField] private GameObject cameraObject;
+    [SerializeField] private AudioSource JumpScareSource;
+    bool isDead = false;
 
     public static event EventHandler<JumpScareEventArgs> OnJumpScare;
 
@@ -32,31 +34,42 @@ public class Player : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Die(tag);
+            if (!isDead)
+            {
+                Die(tag);
+                isDead = true;
+            }
         }
     }
 
     private void Die(string killersTag)
     {
         DisableInputs();
+        JumpScareSource.Play();
         if (killersTag == partygoerTag)
         {
             //partygoerJumpScare
             Debug.Log("PartyGoerJumpScare");
-            cameraObject.transform.LookAt(partyGoerTransform.position + 2.5f * Vector3.up);
+            StartCoroutine(LookAtAfterTime(partyGoerTransform));
             OnJumpScare?.Invoke(this, new JumpScareEventArgs { tag = partygoerTag});
         }
         else if (killersTag == smilingTag)
         {
             //smilingManJumpScare
             Debug.Log("SmilingManJumpScare");
-            cameraObject.transform.LookAt(smilingTransform.position + 2.5f * Vector3.up);
+            StartCoroutine(LookAtAfterTime(smilingTransform));
             OnJumpScare?.Invoke(this, new JumpScareEventArgs { tag = smilingTag });
         }
         else
         {
             Debug.LogWarning("No Killers Tag Found! Check Tags");
         }
+    }
+
+    IEnumerator LookAtAfterTime(Transform targetTransform)
+    {
+        yield return new WaitForSeconds(0.3f);
+        cameraObject.transform.LookAt(targetTransform.position + 2.5f * Vector3.up);
     }
 
     private void DisableInputs()
