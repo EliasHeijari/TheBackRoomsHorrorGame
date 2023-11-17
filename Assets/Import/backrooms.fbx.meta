@@ -3,7 +3,12 @@ guid: 0cba06ede64ed594b9f5d8071800cb80
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceiling_frame
+    second: {fileID: 2100000, guid: 3c25babae7582484c93f647ab4240ee6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

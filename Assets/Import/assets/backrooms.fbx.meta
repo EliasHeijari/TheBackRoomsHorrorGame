@@ -3,12 +3,57 @@ guid: 70cb09f54b99f7a4e895fef218453b08
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carpet
+    second: {fileID: 2100000, guid: 21667a23b35c36d4a8205ffdb1f4a450, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceiling_frame
+    second: {fileID: 2100000, guid: 3c25babae7582484c93f647ab4240ee6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceiling_panels
+    second: {fileID: 2100000, guid: db67d6789731c1a42982d2e2181d89eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceiling_vent
+    second: {fileID: 2100000, guid: 3891df026671b03439c67c71c853ad25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamp
+    second: {fileID: 2100000, guid: 0a185ea619984694488371c61280ef0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plaster
+    second: {fileID: 2100000, guid: 23c83eeac6271754b9be328a247f4626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_socket
+    second: {fileID: 2100000, guid: 58def79b735ece345be991856c0d32bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wall_trim
+    second: {fileID: 2100000, guid: 1dc7013ecb2bc254fb8654f5176c8060, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wallpaper
+    second: {fileID: 2100000, guid: 816ef0da2ce3fa947a33a33d36e56b2c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
