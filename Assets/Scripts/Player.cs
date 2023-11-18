@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         health = maxHealth;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void TakeDamage(int damage, string tag)
