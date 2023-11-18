@@ -40958,7 +40958,7 @@ PrefabInstance:
     - target: {fileID: 146879763250784959, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
       propertyPath: m_Volume
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 146879763250784959, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
@@ -40980,6 +40980,16 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 790755772687876939, guid: 72bfa74a5bc00a24e95b34292a336577,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.63479
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196481830297778277, guid: 72bfa74a5bc00a24e95b34292a336577,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.63479
+      objectReference: {fileID: 0}
     - target: {fileID: 3002565735112496431, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
       propertyPath: m_audioClip
@@ -40988,18 +40998,43 @@ PrefabInstance:
     - target: {fileID: 3446413912473877833, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
       propertyPath: m_Volume
-      value: 0.25
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446413912473877833, guid: 72bfa74a5bc00a24e95b34292a336577,
+        type: 3}
+      propertyPath: MinDistance
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3446413912473877833, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: ad8fd32f7b6f28d479023511c8f853fa, type: 3}
+      objectReference: {fileID: 8300000, guid: 6d223af77c07609418da6382315e106c, type: 3}
+    - target: {fileID: 3446413912473877833, guid: 72bfa74a5bc00a24e95b34292a336577,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3560476621561085171, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 13a8936a77f5bb34db8af52553edcbde, type: 2}
+    - target: {fileID: 4634952397922292115, guid: 72bfa74a5bc00a24e95b34292a336577,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634952397922292115, guid: 72bfa74a5bc00a24e95b34292a336577,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634952397922292115, guid: 72bfa74a5bc00a24e95b34292a336577,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4951623547867524353, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41052,6 +41087,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6837319865229469393, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
+      propertyPath: NoticesAudioSource
+      value: 
+      objectReference: {fileID: 1063995545}
+    - target: {fileID: 6837319865229469393, guid: 72bfa74a5bc00a24e95b34292a336577,
+        type: 3}
       propertyPath: fadeToStopChaseAudio
       value: 0.4
       objectReference: {fileID: 0}
@@ -41083,7 +41123,7 @@ PrefabInstance:
     - target: {fileID: 7689054760361265314, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
       propertyPath: runningSpeed
-      value: 4
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 7689054760361265314, guid: 72bfa74a5bc00a24e95b34292a336577,
         type: 3}
@@ -43065,7 +43105,6 @@ GameObject:
   - component: {fileID: 987632455}
   - component: {fileID: 987632454}
   - component: {fileID: 987632459}
-  - component: {fileID: 987632456}
   - component: {fileID: 987632458}
   m_Layer: 0
   m_Name: Floor
@@ -43097,19 +43136,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 240265482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &987632456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 987632451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd22f617f11d8843b55f21126b87de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectMat: {fileID: 2100000, guid: ff6e093a0e4540c45ab2de9319fa9d46, type: 2}
 --- !u!65 &987632458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45510,6 +45536,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partyTag: Party
   smileTag: Smile
+--- !u!82 &1063995545 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3446413912473877833, guid: 72bfa74a5bc00a24e95b34292a336577,
+    type: 3}
+  m_PrefabInstance: {fileID: 916255393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1064053532
 GameObject:
   m_ObjectHideFlags: 0
@@ -59040,6 +59072,11 @@ PrefabInstance:
       propertyPath: m_ObstacleAvoidanceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4399708212405707080, guid: c6e80d47aab78ec43af15bf5e3938124,
+        type: 3}
+      propertyPath: NoticesAudioSource
+      value: 
+      objectReference: {fileID: 1389331023}
     - target: {fileID: 5299424030151071555, guid: c6e80d47aab78ec43af15bf5e3938124,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -59146,6 +59183,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partyTag: Party
   smileTag: Smile
+--- !u!82 &1389331023 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 551652526397083248, guid: c6e80d47aab78ec43af15bf5e3938124,
+    type: 3}
+  m_PrefabInstance: {fileID: 1389331010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1392575686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74553,7 +74596,7 @@ MonoBehaviour:
   hallucinationMoveFloor:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 987632456}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MoveFloor, Assembly-CSharp
         m_MethodName: AddMoveFloorShader
         m_Mode: 1
@@ -74568,7 +74611,7 @@ MonoBehaviour:
   hallucinationStop:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 987632456}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MoveFloor, Assembly-CSharp
         m_MethodName: ResetMaterial
         m_Mode: 1

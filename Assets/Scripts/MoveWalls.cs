@@ -13,11 +13,11 @@ public class MoveWalls : MonoBehaviour
     {
         meshRenderer = GetComponent<MeshRenderer>();
         oldMat = meshRenderer.materials[1];
-        Hallucination.OnHallucinationMedium += Hallucination_OnHallucinationMedium;
-        Hallucination.OnHallucinationMediumOff += Hallucination_OnHallucinationMediumOff;
+        Hallucination.OnHallucinationWalls += Hallucination_OnHallucinationWalls;
+        Hallucination.OnHallucinationWallsOff += Hallucination_OnHallucinationWallsOff;
     }
 
-    private void Hallucination_OnHallucinationMedium(object sender, System.EventArgs e)
+    private void Hallucination_OnHallucinationWalls(object sender, System.EventArgs e)
     {
         if (!hasMaterialSet)
         {
@@ -26,7 +26,7 @@ public class MoveWalls : MonoBehaviour
         }
     }
 
-    private void Hallucination_OnHallucinationMediumOff(object sender, System.EventArgs e)
+    private void Hallucination_OnHallucinationWallsOff(object sender, System.EventArgs e)
     {
         if (hasMaterialSet)
         {

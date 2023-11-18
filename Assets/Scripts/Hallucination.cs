@@ -14,8 +14,8 @@ public class Hallucination : MonoBehaviour
     [SerializeField] private const float timeToIncreaseHalluci = 2f;
     public UnityEvent hallucinationMoveFloor;
     public UnityEvent hallucinationStop;
-    public static event EventHandler OnHallucinationMedium;
-    public static event EventHandler OnHallucinationMediumOff;
+    public static event EventHandler OnHallucinationWalls;
+    public static event EventHandler OnHallucinationWallsOff;
     private bool experiencedHallucination = false;
     private bool hasWallsSet = false;
 
@@ -36,7 +36,7 @@ public class Hallucination : MonoBehaviour
         }
         else
         {
-            OnHallucinationMediumOff?.Invoke(this, EventArgs.Empty);
+            OnHallucinationWallsOff?.Invoke(this, EventArgs.Empty);
         }
         if (hallucinationLevel > maxHallucinationLevel / 3) // crazy
         {
@@ -56,7 +56,7 @@ public class Hallucination : MonoBehaviour
             if (!hasWallsSet)
             {
                 hasWallsSet = true;
-                OnHallucinationMedium?.Invoke(this, EventArgs.Empty);
+                OnHallucinationWalls?.Invoke(this, EventArgs.Empty);
                 StartCoroutine(StopWallsMovementAfterTime());
             }
         }
@@ -64,24 +64,18 @@ public class Hallucination : MonoBehaviour
         {
             if (!experiencedHallucination)
             {
-                hallucinationMoveFloor.Invoke();
-                StartCoroutine(StopFloorMovementAfterTime());
+                OnHallucinationWalls?.Invoke(this, EventArgs.Empty);
+                StartCoroutine(StopWallsMovementAfterTime());
                 experiencedHallucination = true;
             }
             hallucinationBar.color = new Color(255, 0, 0);
         }
     }
 
-    IEnumerator StopFloorMovementAfterTime()
-    {
-        yield return new WaitForSeconds(6f);
-        hallucinationStop.Invoke();
-    }
-
     IEnumerator StopWallsMovementAfterTime()
     {
         yield return new WaitForSeconds(15f);
-        OnHallucinationMediumOff?.Invoke(this, EventArgs.Empty);
+        OnHallucinationWallsOff?.Invoke(this, EventArgs.Empty);
     }
 
     private void IncreaseHallucination()
