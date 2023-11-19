@@ -12,7 +12,14 @@ public class SpiderJumpScare : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Player player))
         {
-            spider.SetActive(true);
+            if (spider != null)
+            {
+                spider.SetActive(true);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
