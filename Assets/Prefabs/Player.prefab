@@ -50,6 +50,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 10
+  partygoerTag: 
+  smilingTag: 
+  partyGoerTransform: {fileID: 0}
+  smilingTransform: {fileID: 0}
+  cameraObject: {fileID: 0}
+  JumpScareSource: {fileID: 0}
 --- !u!143 &3300411260981881777
 CharacterController:
   m_ObjectHideFlags: 0
@@ -99,8 +105,10 @@ MonoBehaviour:
   SpeedToFOV: 4
   CroughHeight: 1
   gravity: 20
-  timeToRunning: 15
   CroughKey: 306
+  audioSource: {fileID: 0}
+  walkingClip: {fileID: 0}
+  runningClip: {fileID: 0}
 --- !u!114 &8042775545986855016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +133,6 @@ GameObject:
   - component: {fileID: 6688220394868610473}
   - component: {fileID: 1435259212102741945}
   - component: {fileID: 9210598770913200966}
-  - component: {fileID: 1101989228164676458}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -251,19 +258,3 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &1101989228164676458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4417033531726826275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fb3a44a99e898c47a51d8e6647748f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enabled: 1
-  Amount: 0.008
-  Frequency: 20
-  Smooth: 90

@@ -2255,7 +2255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33194443c35e9674c883622d95567c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComeHereAudioSource: {fileID: 3446413912473877833}
+  NoticesAudioSource: {fileID: 0}
   ChaseAudioSource: {fileID: 146879763250784959}
   fadeToStopChaseAudio: 1
 --- !u!1 &7355824579355690919

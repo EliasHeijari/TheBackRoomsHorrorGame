@@ -8,8 +8,7 @@ public class PillBottleInteractable : MonoBehaviour, IInteractable
     [SerializeField] private int medHelpAmount = 5;
     public void Interact(Transform interactorTransform)
     {
-        Destroy(gameObject); // play audio
-        hallucination.DecreaseHallucination(medHelpAmount);
+        Destroy(gameObject);
     }
 
     public string GetInteractText()

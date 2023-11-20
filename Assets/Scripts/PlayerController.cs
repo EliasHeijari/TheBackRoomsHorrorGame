@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private float InstallRuningSpeed;
     float InstallWalkingSpeed;
     float InstallFOV;
-    Camera cam;
+    Cinemachine.CinemachineVirtualCamera cam;
     private bool Moving;
     private float vertical;
     private float horizontal;
@@ -49,11 +50,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        cam = GetComponentInChildren<Camera>();
+        cam = GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         InstallCroughHeight = characterController.height;
-        InstallFOV = cam.fieldOfView;
+        InstallFOV = cam.m_Lens.FieldOfView;
         InstallWalkingSpeed = walkingSpeed;
         InstallRuningSpeed = RuningSpeed;
     }
@@ -85,6 +86,7 @@ public class PlayerController : MonoBehaviour
         {
             audioSource.clip = runningClip;
             if (!audioSource.isPlaying) audioSource.Play();
+            cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 3;
         }
         else if (isRunning)
         {
@@ -99,6 +101,7 @@ public class PlayerController : MonoBehaviour
         else if (!isRunning)
         {
             audioSource.Stop();
+            cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
         }
 
         float movementDirectionY = moveDirection.y;
@@ -127,7 +130,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Lookhorizontal * lookSpeed, 0);
 
             float targetFOV = isRunning && Moving ? RunningFOV : InstallFOV;
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, SpeedToFOV * Time.deltaTime);
+            cam.m_Lens.FieldOfView = Mathf.Lerp(cam.m_Lens.FieldOfView, targetFOV, SpeedToFOV * Time.deltaTime);
         }
 
         float targetHeight = Input.GetKey(CroughKey) ? CroughHeight : InstallCroughHeight;

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour {
 
+    public static int pillsEaten { get; private set; }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             IInteractable interactable = GetInteractableObject();
             if (interactable != null) {
                 interactable.Interact(transform);
+                if (interactable.GetTransform().TryGetComponent(out PillBottleInteractable pillBottle)){
+                    pillsEaten++;
+                }
             }
         }
     }
