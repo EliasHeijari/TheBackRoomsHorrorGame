@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource JumpScareSource;
     bool isDead = false;
 
+    private CharacterController characterController;
+    private PlayerController playerController;
+
     public static event EventHandler<JumpScareEventArgs> OnJumpScare;
 
     public class JumpScareEventArgs : EventArgs
@@ -29,6 +32,9 @@ public class Player : MonoBehaviour
         health = maxHealth;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        characterController = GetComponent<CharacterController>();
+        playerController = GetComponent<PlayerController>();
+        StartCoroutine(EnableControlsAfterTime());
     }
 
     public void TakeDamage(int damage, string tag)
@@ -78,6 +84,13 @@ public class Player : MonoBehaviour
     {
         GetComponent<PlayerController>().enabled = false;
         cameraObject.GetComponent<HeadBob>().enabled = false;
+    }
+
+    IEnumerator EnableControlsAfterTime()
+    {
+        yield return new WaitForSeconds(3f);
+        characterController.enabled = true;
+        playerController.enabled = true;
     }
 
     public int GetHealth() { return health; }

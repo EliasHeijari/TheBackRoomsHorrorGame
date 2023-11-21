@@ -1721,7 +1721,6 @@ GameObject:
   - component: {fileID: 4951623547867524353}
   - component: {fileID: 8408008350421260070}
   - component: {fileID: 7689054760361265314}
-  - component: {fileID: 8972893164461916123}
   - component: {fileID: 3002565735112496431}
   - component: {fileID: 8403713261945611072}
   - component: {fileID: 3446413912473877833}
@@ -1809,29 +1808,6 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: -3.61}
   lookingAroundTime: 5
---- !u!136 &8972893164461916123
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7285454534357124785}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!82 &3002565735112496431
 AudioSource:
   m_ObjectHideFlags: 0
