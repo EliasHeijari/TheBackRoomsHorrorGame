@@ -5,9 +5,7 @@ using UnityEngine.Events;
 
 public class Hallucination : MonoBehaviour
 {
-    [SerializeField] private const int maxHallucinationLevel = 100;
-    [SerializeField] private int hallucinationLevel = 5;
-    [SerializeField] private const float timeToIncreaseHalluci = 2f;
+
     public static event EventHandler OnHallucinationWalls;
     public static event EventHandler OnHallucinationWallsOff;
     private bool experiencedCrazyHallucination = false;
