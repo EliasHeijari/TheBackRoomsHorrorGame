@@ -6,6 +6,7 @@ public class JumpScare : MonoBehaviour
 {
     [SerializeField] private string partyTag = "Party";
     [SerializeField] private string smileTag = "Smile";
+    [SerializeField] private string bacteriaTag = "Bacteria";
     private void Start()
     {
         Player.OnJumpScare += Player_OnJumpScare;
@@ -20,6 +21,10 @@ public class JumpScare : MonoBehaviour
         else if (e.tag == smileTag)
         {
             Debug.Log("Smile Jump Scare");
+        }
+        else if (e.tag == bacteriaTag)
+        {
+            Debug.Log("Bacteria Jump Scare");
         }
         Player.OnJumpScare -= Player_OnJumpScare;
     }

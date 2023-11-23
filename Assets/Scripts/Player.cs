@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private string partygoerTag;
     [SerializeField] private string smilingTag;
+    [SerializeField] private string bacteriaTag;
     [SerializeField] private Transform partyGoerTransform;
+    [SerializeField] private Transform bacteriaTransform;
     [SerializeField] private Transform smilingTransform;
     [SerializeField] private GameObject cameraObject;
     [SerializeField] private AudioSource JumpScareSource;
@@ -67,6 +69,13 @@ public class Player : MonoBehaviour
             Debug.Log("SmilingManJumpScare");
             StartCoroutine(LookAtAfterTime(smilingTransform));
             OnJumpScare?.Invoke(this, new JumpScareEventArgs { tag = smilingTag });
+        }
+        else if (killersTag == bacteriaTag)
+        {
+            //smilingManJumpScare
+            Debug.Log("BacteriaJumpScare");
+            StartCoroutine(LookAtAfterTime(bacteriaTransform));
+            OnJumpScare?.Invoke(this, new JumpScareEventArgs { tag = bacteriaTag });
         }
         else
         {
