@@ -39,10 +39,6 @@ public class EnemyAI : MonoBehaviour
     private Vector3 patrolPoint;
     private bool patrolPointSet = false;
 
-    [Header("Looking Around")]
-    [SerializeField] private float lookingAroundTime = 3f;
-    private bool isLookingAround = false;
-
     [Header("NavMeshAgent")]
     private NavMeshAgent navMeshAgent;
 
@@ -82,7 +78,6 @@ public class EnemyAI : MonoBehaviour
                 navMeshAgent.Stop(true);
                 isWalking = false;
                 isRunning = false;
-                isLookingAround = false;
                 playerSeen = true;
                 Attack();
             }
@@ -93,7 +88,6 @@ public class EnemyAI : MonoBehaviour
                 isRunning = true;
                 isAttacking = false;
                 isWalking = false;
-                isLookingAround = false;
                 Chase();
             }
         }
@@ -107,7 +101,6 @@ public class EnemyAI : MonoBehaviour
                 navMeshAgent.Stop(true);
                 isWalking = false;
                 isRunning = false;
-                isLookingAround = false;
                 playerSeen = true;
                 Attack();
             }
@@ -118,7 +111,6 @@ public class EnemyAI : MonoBehaviour
                 isRunning = true;
                 isAttacking = false;
                 isWalking = false;
-                isLookingAround = false;
                 Chase();
             }
             if (!startSettingPlayerSeen)
@@ -200,40 +192,25 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrol()
     {
-        if (!isLookingAround)
+        navMeshAgent.speed = walkingSpeed;
+        isWalking = true;
+        // If Not Looking Around, Start Walking
+        if (!patrolPointSet)
         {
-            navMeshAgent.speed = walkingSpeed;
-            isWalking = true;
-            // If Not Looking Around, Start Walking
-            if (!patrolPointSet)
-            {
-                patrolPoint = patrolPoints[Random.Range(0, patrolPoints.Length)];
-                patrolPointSet = true;
-            }
-            else
-            {
-                navMeshAgent.destination = patrolPoint;
-            }
+            patrolPoint = patrolPoints[Random.Range(0, patrolPoints.Length)];
+            patrolPointSet = true;
         }
         else
         {
-            isWalking = false;
+            navMeshAgent.destination = patrolPoint;
         }
 
         Vector3 distanceToPatrolPoint = transform.position - patrolPoint;
 
-        if (distanceToPatrolPoint.magnitude < 3f && !isLookingAround)
+        if (distanceToPatrolPoint.magnitude < 3f)
         {
             patrolPointSet = false;
-            isLookingAround = true;
-            StartCoroutine(LookingAround());
         }
-    }
-
-    IEnumerator LookingAround()
-    {
-        yield return new WaitForSeconds(lookingAroundTime);
-        isLookingAround = false;
     }
 
     public bool IsWalking() { return isWalking; }
@@ -241,8 +218,6 @@ public class EnemyAI : MonoBehaviour
     public bool IsAttacking() { return isAttacking; }
 
     public bool IsRunning() { return isRunning;}
-
-    public bool IsLookingAround() { return isLookingAround; }
 
 
     private void OnDrawGizmos()

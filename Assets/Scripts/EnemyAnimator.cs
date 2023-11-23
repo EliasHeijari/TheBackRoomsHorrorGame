@@ -10,7 +10,6 @@ public class EnemyAnimator : MonoBehaviour
     private string isWalking = "IsWalking";
     private string isRunning = "IsRunning";
     private string isAttacking = "IsAttacking";
-    private string isLookingAround = "IsLookingAround";
     private string isJumpScare = "IsJumpScare";
     bool isPlayerDead = false;
 
@@ -34,7 +33,6 @@ public class EnemyAnimator : MonoBehaviour
             animator.SetBool(isWalking, enemyAi.IsWalking());
             animator.SetBool(isRunning, enemyAi.IsRunning());
             animator.SetBool(isAttacking, enemyAi.IsAttacking());
-            animator.SetBool(isLookingAround, enemyAi.IsLookingAround());
         }
     }
 }

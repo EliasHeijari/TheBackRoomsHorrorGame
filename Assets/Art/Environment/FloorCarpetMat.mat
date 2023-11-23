@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse:
-        m_Texture: {fileID: 2800000, guid: dee9c06e03d379e49a314db2fa5992d1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 681848e7c42b0654f990bdca4d792a1e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -75,7 +75,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 03c0808322809be40bb87efc61027cb3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1901e10123937ba4590c99f0f4dac393, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -155,7 +155,7 @@ Material:
     - _BaseColor: {r: 1, g: 0.9286188, b: 0.8066038, a: 1}
     - _Color: {r: 1, g: 0.9286188, b: 0.8066038, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainTiling: {r: 40, g: 40, b: 0, a: 0}
+    - _MainTiling: {r: 70, g: 70, b: 0, a: 0}
     - _RippleSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _RippleTiling: {r: 204, g: 200, b: 0, a: 0}
     - _SmoothTiling: {r: 0.05, g: 0.06, b: 0, a: 0}

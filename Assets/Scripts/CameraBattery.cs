@@ -12,6 +12,7 @@ public class CameraBattery : MonoBehaviour
     private float barSize = 0.2f;
     [SerializeField] private Image batteryBarsImage;
     [SerializeField] private float timeToDecreaseBattery = 60f;
+    [SerializeField] private AudioSource batteryChangingAudioSource;
     private void Start()
     {
         batteryLife = maxBatteryLife;
@@ -23,6 +24,7 @@ public class CameraBattery : MonoBehaviour
     {
         if (batteryLife < maxBatteryLife)
         {
+            batteryChangingAudioSource.Play();
             batteryLife++;
             batteryBarsImage.fillAmount += barSize;
             if (batteryLife > 2) batteryBarsImage.color = new Color(1, 1, 1, 0.35f);
