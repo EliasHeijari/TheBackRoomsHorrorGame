@@ -285,7 +285,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: ce66d424339817d42b8936747e0d3953, type: 3}
+      m_Icon: {fileID: 2800000, guid: f31ae53c9c01d4e44b9af49fe5a3d548, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -803,7 +803,7 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 0
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0

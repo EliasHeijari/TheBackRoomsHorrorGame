@@ -7,20 +7,17 @@ public class CameraJumpScare : MonoBehaviour
     [SerializeField] private GameObject jumpScareObject;
     [SerializeField] private float timeToLightsOff = 15f;
     private bool hasJumpScared = false;
-    [SerializeField] private AudioSource lightsOffSource;
+    [SerializeField] private AudioSource startSoundSource;
 
     private void Start()
     {
-        StartCoroutine(LightsOffAfterTime());
+        StartCoroutine(PlaySound());
     }
 
-    IEnumerator LightsOffAfterTime()
+    IEnumerator PlaySound()
     {
         yield return new WaitForSeconds(timeToLightsOff);
-        RenderSettings.fog = true;
-        Color color = new Color(0.35f, 0.35f, 0.35f);
-        RenderSettings.ambientLight = color;
-        lightsOffSource.Play();
+        startSoundSource.Play();
     }
     IEnumerator SetJumpScareOff()
     {
