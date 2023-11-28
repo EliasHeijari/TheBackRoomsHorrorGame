@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform smilingTransform;
     [SerializeField] private GameObject cameraObject;
     [SerializeField] private AudioSource JumpScareSource;
+    [SerializeField] private int EndSceneBuildIndex;
     bool isDead = false;
 
     private CharacterController characterController;
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
     {
         DisableInputs();
         JumpScareSource.Play();
+        StartCoroutine(LoadEndScene());
         if (killersTag == partygoerTag)
         {
             //partygoerJumpScare
@@ -81,6 +84,12 @@ public class Player : MonoBehaviour
         {
             Debug.LogWarning("No Killers Tag Found! Check Tags");
         }
+    }
+
+    IEnumerator LoadEndScene()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadSceneAsync(EndSceneBuildIndex);
     }
 
     IEnumerator LookAtAfterTime(Transform targetTransform)
