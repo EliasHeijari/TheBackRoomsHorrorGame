@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CameraBattery : MonoBehaviour
@@ -13,6 +14,7 @@ public class CameraBattery : MonoBehaviour
     [SerializeField] private Image batteryBarsImage;
     [SerializeField] private float timeToDecreaseBattery = 60f;
     [SerializeField] private AudioSource batteryChangingAudioSource;
+    [SerializeField] private int EndSceneBuildIndex;
     private void Start()
     {
         batteryLife = maxBatteryLife;
@@ -45,6 +47,13 @@ public class CameraBattery : MonoBehaviour
             batteryLife = 0;
             batteryBarsImage.fillAmount = 0;
             Debug.Log("Signal Lost, Battery Died");
+            StartCoroutine(LoadEndScene());
         }
+    }
+
+    IEnumerator LoadEndScene()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(EndSceneBuildIndex);
     }
 }
