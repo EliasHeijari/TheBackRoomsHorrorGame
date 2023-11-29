@@ -72499,6 +72499,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 6864296033665766718}
+    - target: {fileID: 6655349711184497844, guid: 517e3431d84f50f4c83c2bacbbfa4123,
+        type: 3}
+      propertyPath: walkingSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6729556038921541842, guid: 517e3431d84f50f4c83c2bacbbfa4123,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -75449,6 +75454,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 6864296033665766718}
+    - target: {fileID: 6502896902797299408, guid: 2bff345c9b1efdf44ba559f676f3903a,
+        type: 3}
+      propertyPath: walkingSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6539534872690696616, guid: 2bff345c9b1efdf44ba559f676f3903a,
         type: 3}
       propertyPath: m_LocalPosition.x
