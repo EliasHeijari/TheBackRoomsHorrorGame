@@ -66,7 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861ea9afe52288a45b8ba70d38a2cdb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slide: Green
+  playerController: {fileID: 0}
+  sceneBuildIndex: 2
 --- !u!1 &1512079154191931438
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861ea9afe52288a45b8ba70d38a2cdb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slide: Blue
+  playerController: {fileID: 0}
+  sceneBuildIndex: 2
 --- !u!320 &3184637739967910624
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -145,11 +147,15 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 10d69111a2951b14b87af8ae1efcc4ff, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -8527994629705809883, guid: 10d69111a2951b14b87af8ae1efcc4ff, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2856391945803034150, guid: 10d69111a2951b14b87af8ae1efcc4ff, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &2479291168778665852
@@ -218,7 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861ea9afe52288a45b8ba70d38a2cdb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slide: Yellow
+  playerController: {fileID: 0}
+  sceneBuildIndex: 2
 --- !u!1 &6523938383181866688
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7812848636637346495
+--- !u!114 &-7352712911262966152
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: 
   VirtualCamera:
-    exposedName: 0516ddea97c01ab459a5d4cb72cb43f2
+    exposedName: 492fc04a34abffc478cc94b81b495e80
     defaultValue: {fileID: 0}
---- !u!114 &-4664606231816851720
+--- !u!114 &-6898889889165011270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,7 +30,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: 
   VirtualCamera:
-    exposedName: 221d001cc6c322547b7bbbe827f497fd
+    exposedName: d6d782cbbcc48d648bf38cf03b52dd26
     defaultValue: {fileID: 0}
 --- !u!114 &-4166206139044129221
 MonoBehaviour:
@@ -166,14 +166,14 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: -4664606231816851720}
-    m_Duration: 0.48333333333333334
+    m_Asset: {fileID: -7352712911262966152}
+    m_Duration: 3.0166666666666666
     m_TimeScale: 1
     m_ParentTrack: {fileID: -3901782073980894393}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: 0.48333333333333334
+    m_BlendInDuration: 0.4666666666666667
+    m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -200,7 +200,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -217,14 +235,14 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: -7812848636637346495}
-    m_Duration: 3.0166666666666666
+    m_Asset: {fileID: -6898889889165011270}
+    m_Duration: 0.4666666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: -3901782073980894393}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.48333333333333334
-    m_BlendOutDuration: -1
+    m_BlendInDuration: -1
+    m_BlendOutDuration: 0.4666666666666667
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:

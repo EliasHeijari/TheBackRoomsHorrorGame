@@ -7,17 +7,19 @@ using UnityEngine.SceneManagement;
 public class SlideInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private int sceneBuildIndex = 2;
+    [SerializeField] private int sceneBuildIndex = 1;
     public void Interact(Transform interactorTransform)
     {
         playerController.enabled = false;
         GetComponent<PlayableDirector>().Play();
-        GetComponent<PlayableDirector>().played += SlideInteractable_played;
+        GetComponent<PlayableDirector>().stopped += SlideInteractable_played;
     }
 
     private void SlideInteractable_played(PlayableDirector obj)
     {
+        Debug.Log("Load scene");
         SceneManager.LoadScene(sceneBuildIndex);
+        GetComponent<PlayableDirector>().played -= SlideInteractable_played;
     }
 
     public string GetInteractText()
