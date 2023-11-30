@@ -21,6 +21,7 @@ public class CameraBattery : MonoBehaviour
         batteryLife = maxBatteryLife;
         InvokeRepeating("DecreaseBatteryLife", timeToDecreaseBattery, timeToDecreaseBattery);
         BatteryInteractable.OnBatteryTaken += BatteryInteractable_OnBatteryTaken;
+        DecreaseBatteryLife();
     }
 
     private void BatteryInteractable_OnBatteryTaken(object sender, BatteryInteractable.BatteryTakenEventArgs e)

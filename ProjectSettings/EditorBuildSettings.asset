@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InfiniteSlide.unity
     guid: ed646810754a0914f840c484e49e7cd9
+  - enabled: 1
+    path: Assets/Scenes/LevelFun.unity
+    guid: e6eb2d6ba8b3b42469c16228580b4c78
+  - enabled: 1
+    path: Assets/Scenes/LevelRunForYourLife.unity
+    guid: 8919fbf8e4194f644af835306925bf7e
   m_configObjects: {}
