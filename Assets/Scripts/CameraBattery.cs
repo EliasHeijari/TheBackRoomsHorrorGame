@@ -15,6 +15,7 @@ public class CameraBattery : MonoBehaviour
     [SerializeField] private float timeToDecreaseBattery = 60f;
     [SerializeField] private AudioSource batteryChangingAudioSource;
     [SerializeField] private int EndSceneBuildIndex;
+    [SerializeField] private GameObject batteryLifeText;
     private void Start()
     {
         batteryLife = maxBatteryLife;
@@ -32,6 +33,10 @@ public class CameraBattery : MonoBehaviour
             if (batteryLife > 2) batteryBarsImage.color = new Color(1, 1, 1, 0.35f);
             Destroy(e.batteryGameObject);
         }
+        if (batteryLife > 1)
+        {
+            batteryLifeText.SetActive(false);
+        }
     }
 
     public void DecreaseBatteryLife()
@@ -48,6 +53,10 @@ public class CameraBattery : MonoBehaviour
             batteryBarsImage.fillAmount = 0;
             Debug.Log("Signal Lost, Battery Died");
             StartCoroutine(LoadEndScene());
+        }
+        if (batteryLife <= 1)
+        {
+            batteryLifeText.SetActive(true);
         }
     }
 
