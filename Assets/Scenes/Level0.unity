@@ -12361,7 +12361,7 @@ GameObject:
   - component: {fileID: 327555721}
   - component: {fileID: 327555720}
   m_Layer: 5
-  m_Name: TVRoomGuide
+  m_Name: WallClue0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18632,7 +18632,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.96657693, b: 0, a: 1}
   m_Intensity: 14
-  m_Range: 10
+  m_Range: 17
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -28082,7 +28082,7 @@ Transform:
   m_GameObject: {fileID: 787206254}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 8.79, z: -0}
+  m_LocalPosition: {x: -0.35, y: 7.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28124,7 +28124,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.012079239, g: 0, b: 1, a: 1}
   m_Intensity: 14
-  m_Range: 10
+  m_Range: 17
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -55020,8 +55020,10 @@ GameObject:
   - component: {fileID: 1583411897}
   - component: {fileID: 1583411899}
   - component: {fileID: 1583411898}
+  - component: {fileID: 1583411901}
+  - component: {fileID: 1583411900}
   m_Layer: 5
-  m_Name: ExitGuide
+  m_Name: WallClue3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55144,6 +55146,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583411896}
   m_CullTransparentMesh: 1
+--- !u!114 &1583411900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583411896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad92aa0a42d9a64cb5c42d497565f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1583411901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583411896}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 349, y: 217, z: 589.9}
+  m_Center: {x: 155, y: -266.87, z: -480}
 --- !u!4 &1584022238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3bdd4e49161d8d04ba67d24207218618,
@@ -62395,8 +62430,10 @@ GameObject:
   - component: {fileID: 1816573925}
   - component: {fileID: 1816573927}
   - component: {fileID: 1816573926}
+  - component: {fileID: 1816573929}
+  - component: {fileID: 1816573928}
   m_Layer: 5
-  m_Name: TVRoomGuide (2)
+  m_Name: WallClue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62519,6 +62556,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816573924}
   m_CullTransparentMesh: 1
+--- !u!114 &1816573928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816573924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad92aa0a42d9a64cb5c42d497565f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1816573929
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816573924}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 834.5, y: 224, z: 934}
+  m_Center: {x: 152.55, y: -266.87, z: -510}
 --- !u!1 &1816893283
 GameObject:
   m_ObjectHideFlags: 0
@@ -64578,7 +64648,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.038573146, g: 1, b: 0, a: 1}
   m_Intensity: 14
-  m_Range: 10
+  m_Range: 17
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -72469,8 +72539,10 @@ GameObject:
   - component: {fileID: 2139714302}
   - component: {fileID: 2139714304}
   - component: {fileID: 2139714303}
+  - component: {fileID: 2139714306}
+  - component: {fileID: 2139714305}
   m_Layer: 5
-  m_Name: TVRoomGuide (1)
+  m_Name: WallClue2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72593,6 +72665,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139714301}
   m_CullTransparentMesh: 1
+--- !u!114 &2139714305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139714301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad92aa0a42d9a64cb5c42d497565f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2139714306
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139714301}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 599.6, y: 217, z: 617}
+  m_Center: {x: 152.55, y: -266.87, z: -313}
 --- !u!1 &2141165891
 GameObject:
   m_ObjectHideFlags: 0
@@ -73586,6 +73691,31 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 8042775547203709131}
+    - target: {fileID: 1993795349934263944, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993795349934263944, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[0]
+      value: 
+      objectReference: {fileID: 1816573928}
+    - target: {fileID: 1993795349934263944, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[1]
+      value: 
+      objectReference: {fileID: 2139714305}
+    - target: {fileID: 1993795349934263944, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[2]
+      value: 
+      objectReference: {fileID: 1583411900}
+    - target: {fileID: 1993795349934263944, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[3]
+      value: 
+      objectReference: {fileID: 1583411900}
     - target: {fileID: 2479291168778665852, guid: 22b283932ddf1b54e9d65ad46675d0ae,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -73658,6 +73788,31 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 8042775547203709131}
+    - target: {fileID: 3323406790608164813, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323406790608164813, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[0]
+      value: 
+      objectReference: {fileID: 1816573928}
+    - target: {fileID: 3323406790608164813, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[1]
+      value: 
+      objectReference: {fileID: 2139714305}
+    - target: {fileID: 3323406790608164813, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[2]
+      value: 
+      objectReference: {fileID: 1583411900}
+    - target: {fileID: 3323406790608164813, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[3]
+      value: 
+      objectReference: {fileID: 1583411900}
     - target: {fileID: 3672765340505673190, guid: 22b283932ddf1b54e9d65ad46675d0ae,
         type: 3}
       propertyPath: slide
@@ -73673,6 +73828,31 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 8042775547203709131}
+    - target: {fileID: 3672765340505673190, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672765340505673190, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[0]
+      value: 
+      objectReference: {fileID: 1816573928}
+    - target: {fileID: 3672765340505673190, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[1]
+      value: 
+      objectReference: {fileID: 2139714305}
+    - target: {fileID: 3672765340505673190, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[2]
+      value: 
+      objectReference: {fileID: 1583411900}
+    - target: {fileID: 3672765340505673190, guid: 22b283932ddf1b54e9d65ad46675d0ae,
+        type: 3}
+      propertyPath: wallGuides.Array.data[3]
+      value: 
+      objectReference: {fileID: 1583411900}
     - target: {fileID: 6523938383181866688, guid: 22b283932ddf1b54e9d65ad46675d0ae,
         type: 3}
       propertyPath: m_Name
