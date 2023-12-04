@@ -98,8 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: dd401955844eb564fa98f37ca65259d4,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: b3aebd89416f27c4d9fef0fb154dc77f,
     type: 2}
 --- !u!196 &4
@@ -5520,7 +5519,7 @@ Transform:
   m_GameObject: {fileID: 142865096}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.71, y: 2.833, z: 22.646}
+  m_LocalPosition: {x: -3.71, y: 2.641, z: 22.646}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5561,7 +5560,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9860352, b: 0.8820755, a: 1}
-  m_Intensity: 1.3
+  m_Intensity: 3.5
   m_Range: 4
   m_SpotAngle: 179
   m_InnerSpotAngle: 155.80212
@@ -18632,7 +18631,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.96657693, b: 0, a: 1}
-  m_Intensity: 8
+  m_Intensity: 14
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -28124,7 +28123,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.012079239, g: 0, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 14
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -53514,7 +53513,7 @@ Transform:
   m_GameObject: {fileID: 1559400502}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 5.29, y: 2.833, z: 22.646}
+  m_LocalPosition: {x: 5.29, y: 2.696, z: 22.646}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54289,7 +54288,7 @@ Transform:
   m_GameObject: {fileID: 1565933650}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.29, y: 2.736, z: 22.646}
+  m_LocalPosition: {x: 2.29, y: 2.648, z: 22.646}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64578,7 +64577,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.038573146, g: 1, b: 0, a: 1}
-  m_Intensity: 8
+  m_Intensity: 14
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
