@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [Header("Advance")]
     [SerializeField] float RunningFOV = 65.0f;
     [SerializeField] float SpeedToFOV = 4.0f;
-    [SerializeField] float CroughHeight = 1.0f;
+    [SerializeField] float CroughHeight = 0.5f;
     [SerializeField] float gravity = 20.0f;
     private bool canMove = true;
     [Space(20)]
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     bool isCrough;
+    bool isCroughing;
     float InstallCroughHeight;
     float rotationX = 0;
     private bool isRunning = false;
@@ -133,12 +134,12 @@ public class PlayerController : MonoBehaviour
             cam.m_Lens.FieldOfView = Mathf.Lerp(cam.m_Lens.FieldOfView, targetFOV, SpeedToFOV * Time.deltaTime);
         }
 
-        float targetHeight = Input.GetKey(CroughKey) ? CroughHeight : InstallCroughHeight;
+        float targetHeight = isCroughing ? CroughHeight : InstallCroughHeight;
         float targetWalkingSpeed;
-        if (Input.GetKey(CroughKey))
+        if (isCroughing)
         {
             targetWalkingSpeed = CroughSpeed;
-            RuningSpeed = CroughSpeed;
+            RuningSpeed = CroughSpeed * 1.6f;
         }
         else
         {
@@ -148,6 +149,14 @@ public class PlayerController : MonoBehaviour
 
         characterController.height = Mathf.Lerp(characterController.height, targetHeight, 5 * Time.deltaTime);
         walkingSpeed = Mathf.Lerp(walkingSpeed, targetWalkingSpeed, 6 * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Vent"))
+        {
+            isCroughing = true;
+        }
     }
 }
 

@@ -13,6 +13,7 @@ public class SlideInteractable : MonoBehaviour, IInteractable
     bool guide2 = false;
     [SerializeField] private int sceneBuildIndex = 1;
     bool isReadyToSlide = false;
+    private string interactText = "Go To The Slide";
 
     private void Start()
     {
@@ -80,6 +81,7 @@ public class SlideInteractable : MonoBehaviour, IInteractable
             }
         }
         if (guide0 && guide1 && guide2) isReadyToSlide = true;
+        interactText = "Go To The Slide";
     }
 
     public void Interact(Transform interactorTransform)
@@ -93,18 +95,21 @@ public class SlideInteractable : MonoBehaviour, IInteractable
             PlayerPrefs.DeleteKey("Guide1");
             PlayerPrefs.DeleteKey("Guide2");
         }
+        else
+        {
+            interactText = "Not Ready To Go \n need to find all 3 clues from the walls";
+        }
     }
 
     private void SlideInteractable_played(PlayableDirector obj)
     {
-        Debug.Log("Load scene");
         SceneManager.LoadScene(sceneBuildIndex);
         GetComponent<PlayableDirector>().played -= SlideInteractable_played;
     }
 
     public string GetInteractText()
     {
-        return "Go To The Slide";
+        return interactText;
     }
 
     public Transform GetTransform()
