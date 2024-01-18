@@ -8,3 +8,5 @@
 <p>One of the key features of the Backrooms Horror Game is the implementation of an advanced enemy AI system.
   The entities that lurk in the Backrooms are not just static threats;
   they are intelligent, making the horror experience more dynamic and unpredictable.</p>
+
+<p>Project files became too large for git, but the final game is downloadable here https://eliashei.itch.io/the-backrooms</p>
