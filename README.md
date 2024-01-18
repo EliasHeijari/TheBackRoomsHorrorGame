@@ -9,6 +9,6 @@
   The entities that lurk in the Backrooms are not just static threats;
   they are intelligent, making the horror experience more dynamic and unpredictable.</p>
 
-<h2><a href="https://eliashei.itch.io/the-backrooms" target="_blank">Download</a> the Final Game</h2>
+<h2><a href="https://eliashei.itch.io/the-backrooms">Download</a> the Final Game</h2>
 
-<p>Please note that due to the size of project files, they are not suitable for Git, but you can download the final game on itch.io <a href="https://eliashei.itch.io/the-backrooms" target="_blank">here</a>.</p>
+<p>Please note that due to the size of project files, they are not suitable for Git, but you can download the final game on itch.io <a href="https://eliashei.itch.io/the-backrooms">here</a>.</p>
